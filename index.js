@@ -11,11 +11,9 @@ const PORT = process.env.PORT || 3001
 
 const app = express()
 
-const mongoString = process.env.MONGO_STRING
-//const mongoString = "mongodb+srv://awf825:8ISZIbTSVS91HU0l@cluster0.1pzqc3x.mongodb.net/?retryWrites=true&w=majority"
+const mongoString = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@cluster0.1pzqc3x.mongodb.net/?retryWrites=true&w=majority`
 
 mongoose.connect(mongoString)
-
 
 mongoose.connection.on("error", function(error) {
   if (process.env.NODE_ENV === "development") {
