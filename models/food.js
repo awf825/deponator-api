@@ -11,7 +11,11 @@ const FoodSchema = new mongoose.Schema({
   },
   description: {
     type: String
-  }
+  },
+  places: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Place"
+  }]
 })
 
 FoodSchema.index({name: 1}, {unique: true})
