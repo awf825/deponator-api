@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 3001
 const app = express()
 
 const mongoString = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@cluster0.1pzqc3x.mongodb.net/?retryWrites=true&w=majority`
-
+// console.log(mongoString);
 mongoose.connect(mongoString)
 
 mongoose.connection.on("error", function(error) {
@@ -36,8 +36,4 @@ app.use(require("./routes/places/index.js"))
 
 app.listen(PORT, function () {
   console.log(`Express app listening on port ${PORT}`)
-})
-
-app.get("/", (res, req) => {
-  res.json({"hola":"bebe"})
 })

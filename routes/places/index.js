@@ -13,8 +13,9 @@ app.post("/places/create-new-place", function(request, response) {
     }
 })
 
-app.get("/places/get-places-by-food", function(request, response) {
-    api.getPlacesByFood(function(result) {
+app.get("/places/get-places-by-food/:id", function(request, response) {
+    console.log('request.params: ', request.params)
+    api.getPlacesByFood(request.params.id, function(result) {
         response.json(result)
     })
 })

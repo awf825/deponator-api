@@ -16,8 +16,8 @@ module.exports = {
     })
   },
 
-  getPlacesByFood: function(callback) {
-    PlaceModel.find({food: "62adef61fb9e94ae66d211cd"}).lean().exec(function(error, places) {
+  getPlacesByFood: function(id, callback) {
+    PlaceModel.find({food: id}).lean().exec(function(error, places) {
       if (error) {
         callback({error: true})
       } else {
